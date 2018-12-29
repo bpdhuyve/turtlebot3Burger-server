@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find piglet)/launch/turtlebot3_navigation_2.launch"/>
+    <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch"/>
+    <node pkg="face_rec" type="face_recognition_subscriber.py" name="face_recognition_subscriber"/>
+</launch>

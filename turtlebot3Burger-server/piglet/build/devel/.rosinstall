@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/joppe/catkin_ws/src/roboticsProject/piglet/build/devel/setup.sh

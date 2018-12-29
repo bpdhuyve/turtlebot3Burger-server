@@ -1,0 +1,37 @@
+obstacle_range: 3.0
+raytrace_range: 3.5
+
+footprint: [[-0.115, -0.100], [-0.115, 0.100], [0.081, 0.100], [0.081, -0.100]]
+#robot_radius: 0.105
+
+inflation_radius: 0.1 #all paths further than 10cm form obstacle same cost
+#cost_scaling_factor: 3.0
+
+#map_type: costmap
+transform_tolerance: 0.7
+
+plugins:
+    - {name: static_map, type: "costmap_2d::StaticLayer"}
+    - {name: obstacles, type: "costmap_2d::VoxelLayer"} 
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"} 
+    #- {name: sonar_layer, type: "range_sensor_layer::RangeSensorLayer"} 
+
+    
+sonar_layer:
+    topics: ["/custom/sonar"]
+    clear_threshold: 0.05
+    mark_threshold: 0.5      
+    clear_on_max_reading: true                    
+
+obstacles:
+    observation_sources: ir 
+    ir: {sensor_frame: base_link, data_type: PointCloud, topic: PointCloud, marking: true, clearing: true}
+    scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+    #, min_obstacle_height: 0.10, max_obstacle_height: 0.30, inf_is_valid: true}
+    
+inflation_layer:
+    enabled: true
+    cost_scaling_factor: 24.0 #100
+    inflation_radius: 0.40 #0.25
+
+

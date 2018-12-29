@@ -1,0 +1,24 @@
+local_costmap:
+  global_frame: /odom
+  robot_base_frame: /base_footprint
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 10.0 #0.5  
+
+  static_map: false
+  rolling_window: true
+
+  width: 3
+  height: 3
+  resolution: 0.02
+
+plugins:
+    - {name: obstacle_layer, type: "costmap_2d::VoxelLayer"} 
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"} 
+    - {name: sonar_layer, type: "range_sensor_layer::RangeSensorLayer"} 
+
+sonar_layer:
+    topics: ["/custom/sonar"]
+    clear_threshold: 0.05
+    mark_threshold: 0.5                      

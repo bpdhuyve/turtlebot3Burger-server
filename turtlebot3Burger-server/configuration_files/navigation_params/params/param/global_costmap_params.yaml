@@ -1,0 +1,17 @@
+global_costmap:
+  global_frame: /map
+  robot_base_frame: /base_footprint
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 10.0 #0.5
+
+  static_map: true #rue should not initialize based on a map served by the map_server
+
+plugins:
+    - {name: static_map, type: "costmap_2d::StaticLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}  
+
+
+
+

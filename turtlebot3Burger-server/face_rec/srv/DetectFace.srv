@@ -1,0 +1,4 @@
+sensor_msgs/Image img
+---
+int32[] ids
+geometry_msgs/Point[] positions

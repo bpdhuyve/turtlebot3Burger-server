@@ -1,0 +1,59 @@
+<launch>
+
+    <arg name="kpdict"/>
+    <arg name="hmm"/>
+    <arg name="kwsdict"/>
+    <arg name="kws"/>
+
+    <!--
+    Node for publishing audio inputs
+    -->
+    <node
+        name="audio_control"
+        pkg="human_robot_interaction"
+        type="send_audio.py"
+        output="screen"
+        >
+    </node>
+
+    <!--
+    Node for handling keyphrase mode
+    -->
+    <node
+        name="kp_control"
+        pkg="human_robot_interaction"
+        type="keyphrase_test.py"
+        output="screen"
+        >
+        <param name="hmm" value="$(arg hmm)"/>
+        <param name="dict" value="$(arg kpdict)"/>
+
+    </node>
+
+    <!--
+    Node for handling keyphrase mode
+    -->
+    <node
+        name="kws_control"
+        pkg="human_robot_interaction"
+        type="kws_test.py"
+        output="screen"
+        >
+        <param name="hmm" value="$(arg hmm)"/>
+        <param name="dict" value="$(arg kwsdict)"/>
+	<param name="kws" value="$(arg kws)"/>
+
+    </node>
+
+    <!--
+    Node for handling actions
+    -->
+    <node
+        name="action_handler"
+        pkg="human_robot_interaction"
+        type="action_handler.py"
+        output="screen"
+        >
+    </node>
+
+</launch>

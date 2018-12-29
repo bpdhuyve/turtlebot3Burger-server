@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_robot.launch"/>
+    <node pkg="sensors" type="pointcloud_pub.py" name="poincloud_publisher"/>
+    <node pkg="sensors" type="sonar.py" name="sonar_publisher"/>
+    <node pkg="sensors" type="ir_pub.py" name="mapChanger"/>
+    <node pkg="face_rec" type="face_recognition_publisher.py" name="face_recognition_publisher"/>
+    <node pkg="human_robot_interaction" type="speak_subscriber.py" name="voice_control"/>
+</launch>   

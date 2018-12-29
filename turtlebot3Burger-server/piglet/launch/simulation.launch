@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find piglet)/launch/turtlebot3_navigation_2.launch"/>
+    <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam_slammap.launch"/>
+    <node pkg="piglet" type="adapt_map.py" name="ir_publisher"/>
+    <node pkg="piglet" type="fake_sensor_pub.py" name="fake_sensor_pub"/>
+    <node pkg="piglet" type="fake_face_pub.py" name="fake_face_publisher"/>
+</launch> 

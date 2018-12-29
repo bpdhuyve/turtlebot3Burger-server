@@ -1,0 +1,34 @@
+if(not(SL) and not(FL) and not(SR)):
+# move forward
+	print("front: nothing")
+	self.move_f(d,v)
+elif(SL and FL and SR):
+# move backwards
+	print("front: all")
+	self.move_f(d,-v)
+elif(SL and not(FL) and not(SR)):
+# turn clockwise
+	print("front: left side")
+	self.turn_of(theta,a)
+elif(SL and FL and not(SR)):
+# move backwards and turn counter clockwise
+	print("front: left side and front")
+	#self.move_f(d,-v)
+	self.turn_of(theta,-a)
+elif(SL and not(FL) and SR):
+# move backwards
+	print("front: left side and right side")
+	self.move_f(d,-v)
+elif(not(SL) and FL and not(SR)):
+#turn theta because needs to detect which sort of corner it stands
+	print("front: front")
+	self.turn_of(theta,a)
+elif(not(SL) and not(FL) and SR):
+# turn counterclockwise
+	print("front: right side")
+	self.turn_of(theta,-a)
+elif(not(SL) and FL and SR):
+# move backwards and turn clockwise
+	print("front: left side and front")
+	#self.move_f(d,-v)
+	self.turn_of(theta,a)

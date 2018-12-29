@@ -1,0 +1,18 @@
+<?xml version="2.0"?>
+<package format="2">
+  <name>human_robot_interaction</name>
+  <version>1.0.0</version>
+  <description>
+    ROS package for pocketsphinx speech recognizer
+  </description>
+  <author>Andreas Ingelbrecht</author>
+  <maintainer email="andreas.ingelbrecht+piglet@protonmail.com">Andreas Ingelbrecht</maintainer>
+  <license>???</license>
+  <url type="website">https://github.ugent.be/robotics-1819/roboticsProject</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+</package>
